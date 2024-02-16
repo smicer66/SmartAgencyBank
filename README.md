@@ -5,7 +5,7 @@ cash deposits, cash withdrawals, cheque deposits, bill payments (Cable Tv subscr
 
 ## Technical Details
 
-The HandyMate mobile application is developed using Ionic
+The SmartAgencyBank mobile application is developed using Ionic
 
 ## Install the Ionic CLI
 Before proceeding, make sure your computer has Node.js installed. See these instructions to set up an environment for Ionic.
