@@ -12,22 +12,22 @@ Before proceeding, make sure your computer has Node.js installed. See these inst
 
 ## Install the Ionic CLI with npm:
 
-npm install -g @ionic/cli
+npm install -g @ionic/cli<br><br>
 
-If there was a previous installation of the Ionic CLI, it will need to be uninstalled due to a change in package name.
+If there was a previous installation of the Ionic CLI, it will need to be uninstalled due to a change in package name.<br>
 
-$ npm uninstall -g ionic
+$ npm uninstall -g ionic<br>
 $ npm install -g @ionic/cli
 
 ## Install
-Inside the same directory
+Inside the same directory<br><br>
 
-cd SmartAgencyBank
-npm install
+cd SmartAgencyBank<br>
+npm install<br>
 
 ## Run the App
-The majority of Ionic app development can be spent right in the browser using the ionic serve command:
+The majority of Ionic app development can be spent right in the browser using the ionic serve command:<br><br>
 
-$ cd SmartAgencyBank
+$ cd SmartAgencyBank<br>
 $ ionic serve
  
