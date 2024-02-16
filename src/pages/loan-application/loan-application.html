@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar color="primary" style="background-color: #EC2E24 !important">
+	<button ion-button menuToggle><ion-icon name="menu" style="color:#fff !important"></ion-icon></button>
+    <ion-title style="color: #fff !important;">Apply For A Loan</ion-title>
+	<ion-buttons end> <button (click)="logout()" style="background-color: #EC2E24 !important"> <ion-icon name="lock" style="color:#fff !important"></ion-icon> </button> </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-img">
+  <div class="main-content">
+
+    <div padding  style="width: 100%;">
+    <form [formGroup]="loanApplicationForm">
+		<!--<div class="errormsg">
+			<div *ngIf="username.errors && username.touched"><p>Username is required.</p></div>
+		</div>-->
+		<ion-list>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="locate"></ion-icon> Account</ion-label>
+			  <ion-select [(ngModel)]="loanApplicationData.account" [formControl]="account" id="account">
+				<ion-option *ngFor="let account_ of accountlist" value="{{account_.id}}">{{account_.account_number}}</ion-option>
+			  </ion-select>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="contact"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="loanApplicationData.amount" [formControl]="amount" id="amount" type="number" required placeholder="Enter Loan Amount"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="contact"></ion-icon></ion-label>
+			  <ion-select [(ngModel)]="loanApplicationData.loan_period" [formControl]="loan_period" id="loan_period">
+					<ion-option value="12">12 Months</ion-option>
+					<ion-option value="18">18 Months</ion-option>
+					<ion-option value="24">24 Months</ion-option>
+			  </ion-select>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="loanApplicationData.narration" [formControl]="narration" id="narration" type="text" required placeholder="Narration"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="loanApplicationData.pin" [formControl]="pin" id="pin" type="number" required placeholder="Enter Your 4-digit Pin"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			  <div class="col-12">
+				 <button full color="secondary" (click)="onSourceChange()" ion-button round style="font-size:1.7rem !important; background-color: #2B4170 !important; color: #fff !important" strong>Verify Loan Details</button>
+			  </div>
+			  <div class="col-12" style="color: #fff !important; padding-top:10px !important">
+				Current Interest Rate: 12 percent per annum
+			  </div>
+			  <div class="col-12" style="color: #fff !important;">
+				Total Amount Payable: ZMW{{amount_payable}}
+			  </div>
+			  <div class="col-12" style="color: #fff !important;">
+				Interest Incurred: ZMW{{interest_incured}}
+			  </div>
+			  <div style="font-size:20px !important;">&nbsp;</div>
+		</ion-list>
+      <button full color="secondary" (click)="doApplyForLoan(loanApplicationData)" ion-button round style="font-size:1.7rem !important; background-color: #00CC66 !important;" strong>Apply</button>
+    </form>
+  </div>
+  </div>
+</ion-content>

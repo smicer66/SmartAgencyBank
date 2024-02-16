@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar color="primary" style="background-color: #EC2E24 !important">
+	<button ion-button menuToggle><ion-icon name="menu" style="color:#fff !important"></ion-icon></button>
+    <ion-title style="color: #fff !important;">Internet Data</ion-title>
+	<ion-buttons end> <button (click)="logout()" style="background-color: #EC2E24 !important"> <ion-icon name="lock" style="color:#fff !important"></ion-icon> </button> </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-img">
+  <div class="main-content">
+
+    <div padding  style="width: 100%;">
+    <form [formGroup]="internetDataForm">
+      <!--<div class="errormsg">
+        <div *ngIf="username.errors && username.touched">
+          <p>Username is required.</p>
+        </div>
+		
+      </div>-->
+      <ion-list>
+		<ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Account</ion-label>
+          <ion-select [(ngModel)]="internetData.account" [formControl]="account" id="account">
+			<ion-option *ngFor="let account_ of accountlist" value="{{account_.id}}">{{account_.account_number}}</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Internet Provider</ion-label>
+          <ion-select [(ngModel)]="internetData.internet_provider" [formControl]="internet_provider" id="internet_provider" (ionChange)="onSourceChange($event)">
+				<ion-option *ngFor="let telco of telcolist" value="{{telco.id}}">{{telco.name}}</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Subscription Data</ion-label>
+          <ion-select [(ngModel)]="internetData.subscription_data" [formControl]="subscription_data" id="subscription_data">
+				<ion-option *ngFor="let subscription_type of subscription_typelist" value="{{subscription_type.id}}">{{subscription_type.name}}</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+         <ion-label><ion-icon name="locate"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="internetData.mobile_number" [formControl]="mobile_number" id="mobile_number" type="text" required placeholder="Mobile Number"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="internetData.narration" [formControl]="narration" id="narration" type="text" required placeholder="Narration"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="internetData.pin" [formControl]="pin" id="pin" type="number" required placeholder="Enter Your 4-digit Pin"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+
+      </ion-list>
+      <button full color="secondary" (click)="doBuyInternetData(internetData)" ion-button round style="font-size:1.7rem !important; background-color: #00CC66 !important;" strong>Pay</button>
+    </form>
+  </div>
+  </div>
+</ion-content>

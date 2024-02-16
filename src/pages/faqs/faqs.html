@@ -1,0 +1,100 @@
+<!--
+  Generated template for the FaqsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary" style="background-color: #ff6600 !important">
+	
+    <button ion-button menuToggle><ion-icon name="menu" style="color:#fff !important"></ion-icon></button>
+	<ion-title style="color: #fff !important;">Funds Transfer</ion-title>
+	<ion-buttons end> <button (click)="logout()" style="background-color: #EC2E24 !important"> <ion-icon name="lock" style="color:#fff !important"></ion-icon> </button> </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<div ion-row style="padding-right: 0px !important;">
+		<ion-list ion-row style="padding-right: 0px !important; margin-right:0px !important">
+			
+			<ion-item *ngFor="let item of itemslist" (click)="expandItem(item)">
+				<div class="col col-12" [ngClass]="{'bg-orange': item.expanded}">
+					<div class="" style="padding:0px !important; float:left !important;">
+						{{item.title}}
+					</div>
+					<div class="" style="padding:0px !important; float:right !important;">
+						<fa name="arrow-up" *ngIf="!item.expanded"></fa>
+						<fa name="arrow-down" *ngIf="item.expanded"></fa>
+					</div>
+					
+					<div class="" style="clear:both !important; height: 1px !important; font-size:1px !important;">&nbsp;</div>
+				</div>
+				<div class="col col-12" *ngIf="item.expanded" style="white-space: pre-line !important; padding-top: 0px !important">
+					{{item.text}}
+				</div>
+			</ion-item>
+			
+			<!--<ion-item ion-icon="contact" (click)="gotofaq('mini-statement')">
+				<ion-icon name="plane" item-left></ion-icon>
+				Mini Statement
+			</ion-item>
+			
+			<ion-item (click)="gotofaq('internal-funds-transfer')">
+				<ion-icon name="jet" item-left></ion-icon>
+				Funds Transfer Within Banc ABC
+			</ion-item>
+			
+			<ion-item (click)="gotofaq('funds-transfer-other-banks')">
+				<ion-icon ios="ios-globe" md="md-globe" item-left></ion-icon>
+				Funds Transfer To Other Banks
+			</ion-item>
+			
+			<ion-item (click)="gotofaq('funds-transfer-subsidiary')">
+				<ion-icon name="plane" item-left></ion-icon>
+				Funds Transfer To Subsidiaries
+			</ion-item>
+			
+			<ion-item ion-icon="contact" (click)="gotofaq('funds-transfer-intl')">
+				<ion-icon name="plane" item-left></ion-icon>
+				International Funds Transfer
+			</ion-item>
+			
+			<ion-item (click)="gotofaq('airtime-topup')">
+				<ion-icon name="jet" item-left></ion-icon>
+				Airtime TopUp
+			</ion-item>
+			
+			<ion-item (click)="gotofaq('flight-tickets')">
+				<ion-icon ios="ios-globe" md="md-globe" item-left></ion-icon>
+				Flight Tickets Purchase
+			</ion-item>
+			
+			<ion-item (click)="gotofaq('train-tickets')">
+				<ion-icon name="plane" item-left></ion-icon>
+				Train Tickets Purchase
+			</ion-item>
+			
+			<ion-item ion-icon="contact" (click)="gotofaq('pay-merchant')">
+				<ion-icon name="plane" item-left></ion-icon>
+				Pay Merchant
+			</ion-item>
+			
+			<ion-item (click)="gotofaq('pay-school-fees')">
+				<ion-icon name="jet" item-left></ion-icon>
+				Pay School Fees
+			</ion-item>
+			
+			<ion-item (click)="gotofaq('loan-applications')">
+				<ion-icon ios="ios-globe" md="md-globe" item-left></ion-icon>
+				Loan Applications & Repayments
+			</ion-item>
+			
+			<ion-item (click)="gotofaq('request-cheques-cards')">
+				<ion-icon name="plane" item-left></ion-icon>
+				Request Cheques & Card
+			</ion-item>-->
+		</ion-list>
+	</div>
+
+</ion-content>

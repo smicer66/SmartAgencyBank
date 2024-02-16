@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-navbar color="primary" style="background-color: #EC2E24 !important">
+    <ion-title style="color: #fff !important;">Register 1/3</ion-title>
+	<!--<ion-buttons end> <button (click)="openModal()" style="background-color: #EC2E24 !important"> <ion-icon name="unlock" style="color:#fff !important"></ion-icon> </button> </ion-buttons>-->
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-img">
+  <div class="main-content">
+
+    <div padding  style="width: 100%;">
+    <form [formGroup]="authForm">
+      <!--<div class="errormsg">
+        <div *ngIf="username.errors && username.touched">
+          <p>Username is required.</p>
+        </div>
+		
+      </div>-->
+      <ion-list>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Your Province</ion-label>
+          <ion-select [(ngModel)]="regData.province" [formControl]="province" id="province" (ionChange)="onProvinceChange($event)">
+			<ion-option *ngFor="let location of province_list" value="{{location.id}}|||{{location.name}}">{{location.name}}</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Your District</ion-label>
+          <ion-select [(ngModel)]="regData.location" [formControl]="location" id="location" (ionChange)="onDistrictChange($event)">
+			<ion-option *ngFor="let location of district_list" value="{{location.id}}|||{{location.name}}">{{location.name}}</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="user"></ion-icon> Preferred Smart Agent</ion-label>
+          <ion-select [(ngModel)]="regData.agent" [formControl]="agent" id="agent">
+			<ion-option *ngFor="let agent of agentlist" value="{{agent.id}}|||{{agent.name}}">{{agent.name}}</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="regData.mobile_number" [formControl]="mobile_number" id="mobile_number" type="number" required placeholder="Enter Your Mobile Number"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="regData.full_name" [formControl]="full_name" id="full_name" type="text" required placeholder="Enter Your Full Name"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+
+      </ion-list>
+      <button full color="secondary" (click)="doRegisterStepOne(regData)" ion-button round style="font-size:1.7rem !important; background-color: #00CC66 !important;" strong>Register</button>
+		<!--<div class="sepretor-or" padding-horizontal> <p>Or</p></div>
+		<div padding text-center class="form-bottom-text">
+			<label>Sign up with </label>
+			</div>
+		<div text-center class="socialLogin" padding>
+		  <button ion-button class="google" (click)="socialLogin('google')"><ion-icon name="logo-google" style="margin-right: 12px;"></ion-icon>Google</button>
+		  <button ion-button class="facebook" (click)="socialLogin('facebook')"><ion-icon name="logo-facebook" style="margin-right: 12px;"></ion-icon> Facebook</button>
+		</div>-->
+    </form>
+  </div>
+  </div>
+</ion-content>

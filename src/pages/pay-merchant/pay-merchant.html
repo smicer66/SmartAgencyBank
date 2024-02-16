@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="primary" style="background-color: #EC2E24 !important">
+	<button ion-button menuToggle><ion-icon name="menu" style="color:#fff !important"></ion-icon></button>
+    <ion-title style="color: #fff !important;">Pay A Merchant - 1/2</ion-title>
+	<ion-buttons end> <button (click)="logout()" style="background-color: #EC2E24 !important"> <ion-icon name="lock" style="color:#fff !important"></ion-icon> </button> </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-img">
+  <div class="main-content">
+
+    <div padding  style="width: 100%;">
+    <form [formGroup]="payMerchantForm">
+      <!--<div class="errormsg">
+        <div *ngIf="username.errors && username.touched">
+          <p>Username is required.</p>
+        </div>
+		
+      </div>-->
+      <ion-list>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Account</ion-label>
+          <ion-select [(ngModel)]="payMerchantData.account" [formControl]="account" id="account">
+			<ion-option *ngFor="let account_ of accountlist" value="{{account_.id}}">{{account_.account_number}}</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> </ion-label>
+          <ion-input [(ngModel)]="payMerchantData.merchant_code" [formControl]="merchant_code" id="merchant_code" type="text" required placeholder="Merchant Code"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> </ion-label>
+          <ion-input [(ngModel)]="payMerchantData.transaction_code" [formControl]="transaction_code" id="transaction_code" type="text" required placeholder="Transaction Code"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <!--<ion-item padding-right>
+          <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="payMerchantData.pin" [formControl]="pin" id="pin" type="number" required placeholder="Enter Your 4-digit Pin"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>-->
+
+      </ion-list>
+      <button full color="secondary" (click)="initiateMerchantPayment(payMerchantData)" ion-button round style="font-size:1.7rem !important; background-color: #00CC66 !important;" strong>Pay Merchant</button>
+    </form>
+  </div>
+  </div>
+</ion-content>

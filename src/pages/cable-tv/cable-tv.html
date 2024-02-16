@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-navbar color="primary" style="background-color: #EC2E24 !important">
+	<button ion-button menuToggle><ion-icon name="menu" style="color:#fff !important"></ion-icon></button>
+    <ion-title style="color: #fff !important;">Cable TV Subscription</ion-title>
+	<ion-buttons end> <button (click)="logout()" style="background-color: #EC2E24 !important"> <ion-icon name="lock" style="color:#fff !important"></ion-icon> </button> </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-img">
+  <div class="main-content">
+
+    <div padding  style="width: 100%;">
+    <form [formGroup]="cableTVForm">
+      <!--<div class="errormsg">
+        <div *ngIf="username.errors && username.touched">
+          <p>Username is required.</p>
+        </div>
+		
+      </div>-->
+      <ion-list>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Account</ion-label>
+          <ion-select [(ngModel)]="cableTVData.account" [formControl]="account" id="account">
+			<ion-option *ngFor="let account_ of accountlist" value="{{account_.id}}">{{account_.account_number}}</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Cable TV Provider</ion-label>
+          <ion-select [(ngModel)]="cableTVData.cable_provider" [formControl]="cable_provider" id="cable_provider" (ionChange)="onNetworkChange($event)">
+				<ion-option *ngFor="let cable_tv_provider of cable_tv_providerlist" value="{{cable_tv_provider.id}}">{{cable_tv_provider.name}}</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Subscription Type</ion-label>
+          <ion-select [(ngModel)]="cableTVData.subscription_type" [formControl]="subscription_type" id="subscription_type">
+				<ion-option *ngFor="let subscriptiontype of subscriptiontypelist" value="{{subscriptiontype.id}}">{{subscriptiontype.name}} - K{{subscriptiontype.amount}}</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+         <ion-label><ion-icon name="locate"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="cableTVData.decoder_number" [formControl]="decoder_number" id="decoder_number" type="text" required placeholder="Decoder Number"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="cableTVData.narration" [formControl]="narration" id="narration" type="text" required placeholder="Narration"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="cableTVData.pin" [formControl]="pin" id="pin" type="password" required placeholder="Enter Your 4-digit Pin"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+
+      </ion-list>
+      <button full color="secondary" (click)="doPurchaseCableSubscription(cableTVData)" ion-button round style="font-size:1.7rem !important; background-color: #00CC66 !important;" strong>Verify</button>
+    </form>
+  </div>
+  </div>
+</ion-content>

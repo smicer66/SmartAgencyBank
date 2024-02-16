@@ -1,0 +1,33 @@
+<!--
+  Generated template for the BillPaymentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary" style="background-color: #ff6600 !important">
+	
+    <button ion-button menuToggle><ion-icon name="menu" style="color:#fff !important"></ion-icon></button>
+	<ion-title style="color: #fff !important;">Manage Cards</ion-title>
+	<ion-buttons end> <button (click)="logout()" style="background-color: #EC2E24 !important"> <ion-icon name="lock" style="color:#fff !important"></ion-icon> </button> </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+	<div ion-row style="padding-right: 0px !important;">
+		<ion-list ion-row style="padding-right: 0px !important; margin-right:0px !important">
+			
+			<ion-item *ngFor="let card of cardlist">
+				<div>
+					<strong>{{card.card_pan}}</strong><br>
+					Account Number: {{card.account_number}} <br>
+					Status: {{card.status}} <br>
+					<a ng-show="card.status=='Active'" class="btn btn-success clearfix" (onclick)="goToDeactivateCard('card.id')">Deactivate Card</a>
+				</div>
+			</ion-item>
+			
+		</ion-list>
+	</div>
+
+</ion-content>

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="primary" style="background-color: #EC2E24 !important">
+	<button ion-button menuToggle><ion-icon name="menu" style="color:#fff !important"></ion-icon></button>
+    <ion-title style="color: #fff !important;">Pay School Fees 1/2</ion-title>
+	<ion-buttons end> <button (click)="logout()" style="background-color: #EC2E24 !important"> <ion-icon name="lock" style="color:#fff !important"></ion-icon> </button> </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-img">
+  <div class="main-content">
+
+    <div padding  style="width: 100%;">
+    <form [formGroup]="paySchoolFeeForm">
+      <!--<div class="errormsg">
+        <div *ngIf="username.errors && username.touched">
+          <p>Username is required.</p>
+        </div>
+		http://shikola.com/api/student-school-fee-query/DMP800/Z2QNO2BZ9W
+      </div>-->
+      <ion-list>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Account</ion-label>
+          <ion-select [(ngModel)]="paySchoolFeeData.account" [formControl]="account" id="account">
+			<ion-option *ngFor="let account_ of accountlist" value="{{account_.id}}">{{account_.account_number}}</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Specify School</ion-label>
+          <ion-select [(ngModel)]="paySchoolFeeData.school" [formControl]="school" id="school">
+				<ion-option *ngFor="let school_ of school_fees_list" value="{{school_.id}}">{{school_.name}}</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="paySchoolFeeData.student_id_number" [formControl]="student_id_number" id="student_id_number" type="text" required placeholder="Student's Id Number"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="paySchoolFeeData.narration" [formControl]="narration" id="narration" type="text" required placeholder="Narration"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+
+      </ion-list>
+      <button full color="secondary" (click)="doPaySchoolFeeStepOne(paySchoolFeeData)" ion-button round style="font-size:1.7rem !important; background-color: #00CC66 !important;" strong>Pay School Fee</button>
+    </form>
+  </div>
+  </div>
+</ion-content>

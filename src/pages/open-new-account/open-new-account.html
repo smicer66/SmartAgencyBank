@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar color="primary" style="background-color: #EC2E24 !important">
+	<button ion-button menuToggle><ion-icon name="menu" style="color:#fff !important"></ion-icon></button>
+    <ion-title style="color: #fff !important;">Open A New Account</ion-title>
+	<ion-buttons end> <button (click)="logout()" style="background-color: #EC2E24 !important"> <ion-icon name="lock" style="color:#fff !important"></ion-icon> </button> </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-img">
+  <div class="main-content">
+
+    <div padding  style="width: 100%;">
+    <form [formGroup]="openNewAccountForm">
+		<!--<div class="errormsg">
+			<div *ngIf="username.errors && username.touched"><p>Username is required.</p></div>
+		</div>-->
+		<ion-list>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="contact"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="openNewAccountData.first_name" [formControl]="first_name" id="first_name" type="text" required placeholder="Enter Your First Name"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="contact"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="openNewAccountData.last_name" [formControl]="last_name" id="last_name" type="text" required placeholder="Enter Your Last Name"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="contact"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="openNewAccountData.other_name" [formControl]="other_name" id="other_name" type="text" required placeholder="Enter Your Other Name"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="openNewAccountData.national_id_number" [formControl]="national_id_number" id="national_id_number" type="text" required placeholder="Enter Your Natl Id Number"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="phone-portrait"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="openNewAccountData.mobile_number" [formControl]="mobile_number" id="mobile_number" type="mobile" required placeholder="Enter Your Mobile Number"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="locate"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="openNewAccountData.house_address" [formControl]="house_address" id="house_address" type="text" required placeholder="Enter Your House Address"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="locate"></ion-icon> Select Your Address Province</ion-label>
+			  <ion-select [(ngModel)]="openNewAccountData.house_address_province" [formControl]="house_address_province" id="house_address_province">
+					<ion-option value="f">Province 1</ion-option>
+					<ion-option value="m">Province 2</ion-option>
+			  </ion-select>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="locate"></ion-icon> Select Your Address District</ion-label>
+			  <ion-select [(ngModel)]="openNewAccountData.house_address_district" [formControl]="house_address_district" id="house_address_district">
+					<ion-option value="f">District 1</ion-option>
+					<ion-option value="m">District 2</ion-option>
+			  </ion-select>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div><!---->
+		</ion-list>
+      <button full color="secondary" (click)="doRegisterStepOne(openNewAccountData)" ion-button round style="font-size:2.0rem !important; background-color: #EC2E24 !important;" strong>Verify</button>
+    </form>
+  </div>
+  </div>
+</ion-content>

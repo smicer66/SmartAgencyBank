@@ -1,0 +1,17 @@
+page-dashboard {
+	.tabs-md .tab-button-icon{
+		color: #fff !important;
+	}
+	
+	.tab-button-text{
+		font-family: Arial !important;
+	}
+	
+	.tabbar .tab-button[aria-selected=false]{
+		background-color: #000 !important;
+	}
+	
+	.tabbar .tab-button[aria-selected=true]{
+		background-color: #5AAD45;
+	}
+}

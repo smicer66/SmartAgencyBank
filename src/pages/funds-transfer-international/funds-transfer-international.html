@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-navbar color="primary" style="background-color: #EC2E24 !important">
+	<button ion-button menuToggle><ion-icon name="menu" style="color:#fff !important"></ion-icon></button>
+    <ion-title style="color: #fff !important;">International Funds Transfer</ion-title>
+	<ion-buttons end> <button (click)="logout()" style="background-color: #EC2E24 !important"> <ion-icon name="lock" style="color:#fff !important"></ion-icon> </button> </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-img">
+  <div class="main-content">
+
+    <div padding  style="width: 100%;">
+    <form [formGroup]="intlFundsTransferForm">
+		<!--<div class="errormsg">
+			<div *ngIf="username.errors && username.touched"><p>Username is required.</p></div>
+		</div>-->
+		<ion-list>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="contact"></ion-icon>Account</ion-label>
+			  <ion-select [(ngModel)]="intlFundsTransferData.account" [formControl]="account" id="account">
+					<ion-option *ngFor="let account_ of accountlist" value="{{account_.id}}">{{account_.account_number}}</ion-option>
+			  </ion-select>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="locate"></ion-icon> Beneficiary Account</ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferData.receipient_account" [disabled]="true" [formControl]="receipient_account" id="receipient_account" type="text" required placeholder=""></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <button full color="secondary" (click)="openIntlTransferBeneficiaryModal()" ><ion-icon name="user" style="color:#fff !important"></ion-icon>Select Beneficiary</button>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<div col-6 style="float:left !important; padding-left: 0px !important; padding-bottom: 0px !important;">
+				<ion-item padding-right>
+					<ion-label><ion-icon name="locate"></ion-icon> Currency</ion-label>
+					<ion-select [(ngModel)]="intlFundsTransferData.currency" [formControl]="currency" id="currency">
+						<ion-option value="GBP">British Pounds</ion-option>
+						<ion-option value="EUR">Euros</ion-option>
+						<ion-option value="USD">US Dollars</ion-option>
+						<ion-option value="CAD">Canadian Dollars</ion-option>
+						<ion-option value="ZAR">South African Rands</ion-option>
+						<ion-option value="CHF">Swiss Francs</ion-option>
+						<ion-option value="CNY">Chinese Yuan</ion-option>
+						<ion-option value="AED">UAE Dirham</ion-option>
+						<ion-option value="JPY">Japanese Yen</ion-option>
+						<ion-option value="AUD">Australian Dollars</ion-option>
+					</ion-select>
+				</ion-item>
+			</div>
+			<div col-6 style="float:right !important">
+				<ion-item padding-right>
+				  <ion-label><ion-icon name="locate"></ion-icon></ion-label>
+				  <ion-input [(ngModel)]="intlFundsTransferData.amount" [formControl]="amount" id="amount" type="text" required placeholder="Amount"></ion-input>
+				</ion-item>
+			</div>
+			<div style="font-size:20px !important; clear:both">&nbsp;</div>
+			
+			<ion-item padding-right style="clear:both">
+			  <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferData.transfer_purpose" [formControl]="transfer_purpose" id="transfer_purpose" type="text" required placeholder="Purpose of Transfer"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferData.intermediary_bank_name" [formControl]="intermediary_bank_name" id="intermediary_bank_name" type="text" required placeholder="Intermediary Bank Name"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferData.intermediary_swift_code" [formControl]="intermediary_swift_code" id="intermediary_swift_code" type="text" required placeholder="Intermediary Bank Swift Code/BIC"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferData.intermediary_account_number" [formControl]="intermediary_account_number" id="intermediary_account_number" type="text" required placeholder="Intermediary Bank Routing/Account Number"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferData.receipient_mobile_number" [formControl]="receipient_mobile_number" id="receipient_mobile_number" type="text" required placeholder="Receipient Mobile Number"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferData.receipient_email_address" [formControl]="receipient_email_address" id="receipient_email_address" type="text" required placeholder="Receipient Email Address"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferData.additional_data" [formControl]="additional_data" id="additional_data" type="text" required placeholder="Additional Data"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferData.pin" [formControl]="pin" id="pin" type="number" required placeholder="Enter Your 4-digit Pin"></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+		</ion-list>
+      <button full color="secondary" (click)="doFundsTransfer(intlFundsTransferData)" ion-button round style="font-size:2.0rem !important; background-color: #00CC66 !important;" strong>Transfer Funds</button>
+    </form>
+  </div>
+  </div>
+</ion-content>

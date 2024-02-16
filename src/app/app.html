@@ -1,0 +1,42 @@
+<ion-menu class="ion-menu_1" type="overlay" [content]="mycontent">
+  <ion-content>
+		<ion-list ion-row style="margin:0px !important; padding-right: 0px !important; margin-right:0px !important; background-image: url(../assets/imgs/menu_bg.jpg); background-repeat: no-repeat; background-attachment: fixed;">
+			
+			<ion-item class="ion-item_1" (click)="openPage('dashboard')">
+				<ion-icon name="cog" item-left></ion-icon>
+				Dashboard
+			</ion-item>
+			
+			<ion-item class="ion-item_1" (click)="openPage('mini-statement')">
+				<ion-icon name="clipboard" item-left></ion-icon>
+				Mini Statement
+			</ion-item>
+			
+			<ion-item class="ion-item_1" (click)="openPage('accounts')">
+				<ion-icon name="md-albums" item-left></ion-icon>
+				Accounts
+			</ion-item>
+			
+			<ion-item class="ion-item_1" (click)="openPage('loans')">
+				<ion-icon name="cash" item-left></ion-icon>
+				Loans
+			</ion-item>
+			
+			<ion-item class="ion-item_1" (click)="openPage('deposits-withdrawals')">
+				<ion-icon name="cash" item-left></ion-icon>
+				Deposits & Withdrawals
+			</ion-item>
+			
+			<ion-item class="ion-item_1" (click)="openPage('account-officer')">
+				<ion-icon name="contact" item-left></ion-icon>
+				Agent Officer
+			</ion-item>
+			
+			<ion-item class="ion-item_1" (click)="openPage('faqs')">
+				<ion-icon name="help-buoy" item-left></ion-icon>
+				FAQs
+			</ion-item>
+		</ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav #mycontent [root]="rootPage"></ion-nav>

@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-navbar color="primary" style="background-color: #EC2E24 !important">
+	<button ion-button menuToggle><ion-icon name="menu" style="color:#fff !important"></ion-icon></button>
+    <ion-title style="color: #fff !important;">Buy Bus Ticket</ion-title>
+	<ion-buttons end> <button (click)="logout()" style="background-color: #EC2E24 !important"> <ion-icon name="lock" style="color:#fff !important"></ion-icon> </button> </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-img">
+  <div class="main-content">
+
+    <div padding  style="width: 100%;">
+    <form [formGroup]="bookBusTicketForm">
+      <!--<div class="errormsg">
+        <div *ngIf="username.errors && username.touched">
+          <p>Username is required.</p>
+        </div>
+		
+      </div>-->
+      <ion-list>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Select Bus Service</ion-label>
+          <ion-select [(ngModel)]="bookBusTicketData.airline" [formControl]="airline" id="airline">
+				<ion-option value="School Fee A">Zambia Rail</ion-option>
+				<ion-option value="School Fee B">Luftansa Rail</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="bookBusTicketData.trip_date" [formControl]="trip_date" id="trip_date" type="number" required placeholder="Trip Start Date"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="bookBusTicketData.return_date" [formControl]="return_date" id="return_date" type="number" required placeholder="Trip Return Date"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+		<ion-item padding-right>
+			<ion-label><ion-icon name="locate"></ion-icon> Passengers</ion-label>
+			<ion-input [(ngModel)]="bookBusTicketData.adults" [formControl]="adults" id="adults" type="number" required value="0"></ion-input>
+		</ion-item><div style="font-size:20px !important; clear:both">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="bookBusTicketData.first_name" [formControl]="first_name" id="first_name" type="number" required placeholder="Lead Passenger First Name"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="bookBusTicketData.last_name" [formControl]="last_name" id="last_name" type="number" required placeholder="Lead Passenger Surname"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="bookBusTicketData.other_name" [formControl]="other_name" id="other_name" type="number" required placeholder="Lead Passenger Other Name"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="bookBusTicketData.national_id_number" [formControl]="national_id_number" id="national_id_number" type="number" required placeholder="Lead Passenger Natl Id Number"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="bookBusTicketData.mobile_number" [formControl]="mobile_number" id="mobile_number" type="number" required placeholder="Lead Passenger Mobile Number"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="bookBusTicketData.email_address" [formControl]="email_address" id="email_address" type="number" required placeholder="Lead Passenger Email Address"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="bookBusTicketData.narration" [formControl]="narration" id="narration" type="number" required placeholder="Narration"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="bookBusTicketData.pin" [formControl]="pin" id="pin" type="number" required placeholder="Enter Your 4-digit Pin"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+
+      </ion-list>
+      <button full color="secondary" (click)="doRegisterStepOne(bookBusTicketData)" ion-button round style="font-size:2.0rem !important; background-color: #EC2E24 !important;" strong>Verify</button>
+    </form>
+  </div>
+  </div>
+</ion-content>

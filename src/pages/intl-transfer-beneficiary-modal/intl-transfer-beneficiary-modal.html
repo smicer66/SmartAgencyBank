@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar color="primary" style="background-color: #EC2E24 !important">
+	<button ion-button menuToggle><ion-icon name="menu" style="color:#fff !important"></ion-icon></button>
+	<ion-buttons end> <button (click)="openModal()" style="background-color: #EC2E24 !important"> <ion-icon name="arrow-dropleft-circle" style="color:#fff !important"></ion-icon> </button> </ion-buttons>
+    <ion-title style="color: #fff !important;">Provide Beneficiary Details</ion-title>
+	<ion-buttons end> <button (click)="logout()" style="background-color: #EC2E24 !important"> <ion-icon name="lock" style="color:#fff !important"></ion-icon> </button> </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-img">
+  <div class="main-content">
+
+    <div padding  style="width: 100%;">
+    <form [formGroup]="intlFundsTransferBeneficiaryForm">
+		<!--<div class="errormsg">
+			<div *ngIf="username.errors && username.touched"><p>Username is required.</p></div>
+		</div>-->
+		<ion-list>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="locate"></ion-icon> Use IBAN?</ion-label>
+			  <ion-toggle [(ngModel)]="intlFundsTransferBeneficiaryData.iban_yes" [formControl]="iban_yes" id="iban_yes" (ionChange)="onSourceChange($event)"></ion-toggle>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right>
+			  <ion-label><ion-icon name="locate"></ion-icon> Beneficiary Name</ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferBeneficiaryData.beneficiary_name" [formControl]="beneficiary_name" id="beneficiary_name" type="text" required placeholder=""></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right *ngIf="iban_yes_val">
+			  <ion-label><ion-icon name="locate"></ion-icon> Beneficiary IBAN</ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferBeneficiaryData.beneficiary_iban" [formControl]="beneficiary_iban" id="beneficiary_iban" type="text" required placeholder=""></ion-input>
+			</ion-item><div style="font-size:20px !important;" *ngIf="iban_yes_val">&nbsp;</div>
+			<ion-item padding-right *ngIf="!iban_yes_val">
+			  <ion-label><ion-icon name="locate"></ion-icon> Beneficiary Address</ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferBeneficiaryData.beneficiary_address" [formControl]="beneficiary_address" id="beneficiary_address" type="text" required placeholder=""></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right *ngIf="!iban_yes_val">
+			  <ion-label><ion-icon name="locate"></ion-icon> Bank Routing/Sort Code</ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferBeneficiaryData.beneficiary_bank_routing_sort_code" [formControl]="beneficiary_bank_routing_sort_code" id="beneficiary_bank_routing_sort_code" type="text" required placeholder=""></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right *ngIf="!iban_yes_val">
+			  <ion-label><ion-icon name="locate"></ion-icon> Swift Code/BIC*</ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferBeneficiaryData.beneficiary_swift_code" [formControl]="beneficiary_swift_code" id="beneficiary_swift_code" type="text" required placeholder=""></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right *ngIf="!iban_yes_val">
+			  <ion-label><ion-icon name="locate"></ion-icon> Account Number*</ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferBeneficiaryData.beneficiary_account_number" [formControl]="beneficiary_account_number" id="beneficiary_account_number" type="text" required placeholder=""></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right *ngIf="!iban_yes_val">
+			  <ion-label><ion-icon name="locate"></ion-icon> Bank Name*</ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferBeneficiaryData.beneficiary_bank_name" [formControl]="beneficiary_bank_name" id="beneficiary_bank_name" type="text" required placeholder=""></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right *ngIf="!iban_yes_val">
+			  <ion-label><ion-icon name="locate"></ion-icon> Beneficiary Bank Address</ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferBeneficiaryData.beneficiary_bank_address" [formControl]="beneficiary_bank_address" id="beneficiary_bank_address" type="text" required placeholder=""></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			<ion-item padding-right *ngIf="!iban_yes_val">
+			  <ion-label><ion-icon name="locate"></ion-icon> Beneficiary Bank Country*</ion-label>
+			  <ion-input [(ngModel)]="intlFundsTransferBeneficiaryData.beneficiary_bank_country" [formControl]="beneficiary_bank_country" id="beneficiary_bank_country" type="text" required placeholder=""></ion-input>
+			</ion-item><div style="font-size:20px !important;">&nbsp;</div>
+			
+		</ion-list>
+      <button full color="secondary" (click)="doHandleBeneficiary(intlFundsTransferBeneficiaryData)" ion-button round style="font-size:2.0rem !important; background-color: #00CC66 !important;" strong>Proceed</button>
+    </form>
+  </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+	<ion-buttons end> <button (click)="closeIntlFundsTransferBeneficiaryModal()" style="background-color: #EC2E24 !important; font-size:2.0rem !important; color: #fff !important" class="btn btn-danger col col-12"> x Close </button> </ion-buttons>
+</ion-footer>

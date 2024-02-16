@@ -1,0 +1,107 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+.ion-item_1{
+	/*padding-top: 15px !important;
+	padding-bottom: 15px !important;*/
+	border-bottom: 0px solid #dedede !important;
+	background-color: inherit !important;
+	color: #fff;
+}
+
+.ion-item_1 ion-label
+{
+	font-size: 18px !important;
+}
+
+.ion-item_1 .scroll-content{
+	padding: 0px !important;
+}
+
+.ion-item_1 .item-inner
+{
+	border-bottom: 0px solid !important;
+}
+
+.ion-menu_1 .menu-inner
+{
+	width: 90% !important; 
+}
+
+.ion-menu_1 ion-label
+{
+	color: #fff;
+	font-weight: bold;
+}
+
+.label {
+    font-weight: normal !important;
+    text-align: left !important;
+	color: inherit !important;
+	line-height: 2 !important;
+	font-size: inherit !important;
+	padding: inherit !important;
+}
+
+.item > ion-icon, .item-inner > ion-icon{
+	padding-left: 16px !important;
+}
+
+ion-label > ion-icon{
+	padding-right: 10px !important;
+}
+
+.alert-md .alert-head {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.alert-md .alert-title{
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.alert-button-group{
+	button.alert-button:nth-child(1){
+		background-color: red;
+		color: #fff;
+    }
+
+    button.alert-button:nth-child(2){
+		background-color: green;
+		color: #fff;
+    }
+}
+
+.picker-toolbar-button:nth-child(1){
+	button.picker-button{
+		background-color: red;
+		color: #fff;
+    }
+}
+
+.picker-toolbar-button:nth-child(2){
+	button.picker-button{
+		background-color: green;
+		color: #fff;
+    }
+}
+
+
+	
+.tabbar .tab-button .tab-button-text{
+	font-size: 12px !important;
+}

@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-navbar color="primary" style="background-color: #EC2E24 !important">
+	<button ion-button menuToggle><ion-icon name="menu" style="color:#fff !important"></ion-icon></button>
+    <ion-title style="color: #fff !important;">Mobile Top-Up</ion-title>
+	<ion-buttons end> <button (click)="logout()" style="background-color: #EC2E24 !important"> <ion-icon name="lock" style="color:#fff !important"></ion-icon> </button> </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="bg-img">
+  <div class="main-content">
+
+    <div padding  style="width: 100%;">
+    <form [formGroup]="mobileTopUpForm">
+      <!--<div class="errormsg">
+        <div *ngIf="username.errors && username.touched">
+          <p>Username is required.</p>
+        </div>
+		
+      </div>-->
+      <ion-list>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Account</ion-label>
+          <ion-select [(ngModel)]="mobileTopUpData.account" [formControl]="account" id="account">
+			<ion-option *ngFor="let account_ of accountlist" value="{{account_.id}}">{{account_.account_number}}</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Network Provider</ion-label>
+          <ion-select [(ngModel)]="mobileTopUpData.network_provider" [formControl]="network_provider" id="network_provider" (ionChange)="onNetworkChange($event)">
+				<ion-option value="mtn">MTN</ion-option>
+				<ion-option value="airtel">Airtel</ion-option>
+				<ion-option value="zamtel">Zamtel</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Pin/Pinless</ion-label>
+          <ion-select [(ngModel)]="mobileTopUpData.pin_pinless" [formControl]="pin_pinless" id="pin_pinless">
+				<ion-option value="pin">PIN</ion-option>
+				<ion-option value="pinless">PINLESS</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="locate"></ion-icon> Amount</ion-label>
+          <ion-select [(ngModel)]="mobileTopUpData.amount" [formControl]="amount" id="amount">
+			<ion-option *ngFor="let denomination of telcodenominations" value="{{denomination.amount}}">K{{denomination.amount}}</ion-option>
+		  </ion-select>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+         <ion-label><ion-icon name="locate"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="mobileTopUpData.receipient" [formControl]="receipient" id="receipient" type="number" required placeholder="Receipients Mobile Number"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="mobileTopUpData.narration" [formControl]="narration" id="narration" type="text" required placeholder="Narration"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+        <ion-item padding-right>
+          <ion-label><ion-icon name="keypad"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="mobileTopUpData.pin" [formControl]="pin" id="pin" type="password" required placeholder="Enter Your 4-digit Pin"></ion-input>
+        </ion-item><div style="font-size:20px !important;">&nbsp;</div>
+
+      </ion-list>
+      <button full color="secondary" (click)="doPurchaseMobileTopUp(mobileTopUpData)" ion-button round style="font-size:2.0rem !important; background-color: #00CC66 !important;" strong>Buy Airtime</button>
+    </form>
+  </div>
+  </div>
+</ion-content>

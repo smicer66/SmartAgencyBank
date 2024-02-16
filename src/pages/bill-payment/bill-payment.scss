@@ -1,0 +1,21 @@
+page-bill-payment {
+	ion-item{
+		padding-top: 15px !important;
+		padding-bottom: 15px !important;
+		border-bottom: 1px solid #dedede !important;
+	}
+	
+	ion-label
+	{
+		font-size: 22px !important;
+	}
+	
+	.scroll-content{
+		padding: 0px !important;
+	}
+	
+	.item-inner
+	{
+		border-bottom: 0px solid !important;
+	}
+}
